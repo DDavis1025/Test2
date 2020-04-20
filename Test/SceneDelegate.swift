@@ -21,13 +21,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
+        
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
-            self.window = window
-            window.makeKeyAndVisible()
+            var navigationController: UINavigationController?
+
+            let mainVC = OtherView()
+            let child = GlobalAudio()
+            navigationController = UINavigationController(rootViewController: mainVC)
+            
+            window.rootViewController = navigationController
+//            window.addSubview(mainVC.view)
+            window.addSubview(mainVC.view)
+//            window.bringSubviewToFront(child.view)
+//              window.rootViewController = ImageSlideVC()
+////
+               window.makeKeyAndVisible()
+//
+               self.window = window
+
+            
+
+            
+            
         }
     }
 
